@@ -1,0 +1,8 @@
+/Users/denizhanyildiz/Documents/myApplications/spring-ai-rag-expert/src/main/java/ai/project/spring_ai_rag/SpringAiRagApplication.java
+/Users/denizhanyildiz/Documents/myApplications/spring-ai-rag-expert/src/main/java/ai/project/spring_ai_rag/config/VectorStoreConfig.java
+/Users/denizhanyildiz/Documents/myApplications/spring-ai-rag-expert/src/main/java/ai/project/spring_ai_rag/config/VectorStoreProperties.java
+/Users/denizhanyildiz/Documents/myApplications/spring-ai-rag-expert/src/main/java/ai/project/spring_ai_rag/controller/QuestionController.java
+/Users/denizhanyildiz/Documents/myApplications/spring-ai-rag-expert/src/main/java/ai/project/spring_ai_rag/model/Answer.java
+/Users/denizhanyildiz/Documents/myApplications/spring-ai-rag-expert/src/main/java/ai/project/spring_ai_rag/model/Question.java
+/Users/denizhanyildiz/Documents/myApplications/spring-ai-rag-expert/src/main/java/ai/project/spring_ai_rag/service/OpenAIService.java
+/Users/denizhanyildiz/Documents/myApplications/spring-ai-rag-expert/src/main/java/ai/project/spring_ai_rag/service/OpenAIServiceImpl.java

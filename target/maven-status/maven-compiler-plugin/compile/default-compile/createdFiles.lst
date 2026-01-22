@@ -1,0 +1,8 @@
+ai/project/spring_ai_rag/SpringAiRagApplication.class
+ai/project/spring_ai_rag/service/OpenAIServiceImpl.class
+ai/project/spring_ai_rag/model/Question.class
+ai/project/spring_ai_rag/service/OpenAIService.class
+ai/project/spring_ai_rag/controller/QuestionController.class
+ai/project/spring_ai_rag/config/VectorStoreConfig.class
+ai/project/spring_ai_rag/model/Answer.class
+ai/project/spring_ai_rag/config/VectorStoreProperties.class
