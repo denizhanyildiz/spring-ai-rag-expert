@@ -1,9 +1,12 @@
 package ai.project.spring_ai_rag.service;
 
+import ai.project.spring_ai_rag.model.AiProvider;
 import ai.project.spring_ai_rag.model.Answer;
 import ai.project.spring_ai_rag.model.Question;
 
-public interface OpenAIService {
+public interface AiService {
+
+    boolean isSupported(AiProvider provider);
 
     Answer getAnswer(Question question);
 }

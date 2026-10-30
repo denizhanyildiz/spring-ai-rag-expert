@@ -1,5 +1,6 @@
 package ai.project.spring_ai_rag.service;
 
+import ai.project.spring_ai_rag.model.AiProvider;
 import ai.project.spring_ai_rag.model.Answer;
 import ai.project.spring_ai_rag.model.Question;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @Service
-public class OpenAIServiceImpl implements OpenAIService {
+public class OpenAIServiceImpl implements AiService {
 
     private final OpenAiChatModel chatModel;
     private final VectorStore simpleVectorStore;
@@ -30,6 +31,11 @@ public class OpenAIServiceImpl implements OpenAIService {
 
     @Value("classpath:/templates/system-message.st")
     private Resource systemMessageTemplate;
+
+    @Override
+    public boolean isSupported(AiProvider provider) {
+        return provider == AiProvider.OPENAI;
+    }
 
     @Override
     public Answer getAnswer(Question question) {
