@@ -9,4 +9,6 @@ public interface AiService {
     boolean isSupported(AiProvider provider);
 
     Answer getAnswer(Question question);
+
+    Answer getWeather(Question question);
 }

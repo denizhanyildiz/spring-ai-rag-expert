@@ -22,6 +22,11 @@ public class QuestionController {
         return getService(AiProvider.OLLAMA).getAnswer(question);
     }
 
+    @PostMapping("/weather")
+    public Answer askWeather(@RequestBody Question question) {
+        return getService(AiProvider.OLLAMA).getWeather(question);
+    }
+
     private AiService getService(AiProvider provider) {
         return aiServices.stream()
                 .filter(service -> service.isSupported(provider))

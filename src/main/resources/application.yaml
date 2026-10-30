@@ -48,3 +48,7 @@ sfg:
       - https://yamahaoutboards.com/outboards/xto-offshore/v8-5-6l/xf425/pb_spt_open-322_tw_lxf425usb2_8-26-2021_occ
       # Scout 380 LXF - Weight 19,443 lbs
       - https://yamahaoutboards.com/outboards/xto-offshore/v8-5-6l/xf425/pb_sct_380lxf_tr_xf425_8-30-2018_occ
+api-ninjas:
+  url: https://api.api-ninjas.com/v1
+  # set your key here or via the API_NINJAS_KEY environment variable
+  key: ${API_NINJAS_KEY}

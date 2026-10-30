@@ -38,6 +38,11 @@ public class OpenAIServiceImpl implements AiService {
     }
 
     @Override
+    public Answer getWeather(Question question) {
+        throw new UnsupportedOperationException("Weather is not supported by the OpenAI service");
+    }
+
+    @Override
     public Answer getAnswer(Question question) {
         PromptTemplate systemMessagePromptTemplate = new PromptTemplate(systemMessageTemplate);
         Message systemMessage = systemMessagePromptTemplate.createMessage();
