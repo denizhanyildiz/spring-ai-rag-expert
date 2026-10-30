@@ -1,4 +1,4 @@
-
+Always respond in the language requested by the user.
 Recommend the lowest cost truck that can tow the boat.
 Do not spend too much when selecting a truck to tow the boat.
 When towing a boat, the boat's weight as tested should be used.

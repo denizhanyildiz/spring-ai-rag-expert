@@ -7,3 +7,5 @@ QUESTION:
 
 DOCUMENTS:
 {documents}
+
+IMPORTANT: Write your entire answer in {language}, even though the documents are in English.

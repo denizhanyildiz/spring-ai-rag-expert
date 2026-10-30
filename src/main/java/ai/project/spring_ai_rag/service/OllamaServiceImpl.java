@@ -49,8 +49,12 @@ public class OllamaServiceImpl implements AiService {
         List<String> contentList = documents.stream().map(Document::getContent).toList();
 
         PromptTemplate promptTemplate = new PromptTemplate(ragPromptTemplate);
-        Message userMessage = promptTemplate.createMessage(Map.of("input", question.question(), "documents",
-                String.join("\n", contentList)));
+        Message userMessage = promptTemplate.createMessage(
+                Map.of(
+                        "input", question.question(),
+                        "documents", String.join("\n", contentList),
+                        "language", question.language()
+                ));
 
         ChatResponse response = chatModel.call(new Prompt(List.of(systemMessage, userMessage)));
 
