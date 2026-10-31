@@ -80,6 +80,11 @@ public class OllamaServiceImpl implements AiService {
     }
 
     @Override
+    public byte[] getSpeech(Question question) {
+        throw new UnsupportedOperationException("Talk is not supported by the OpenAI service");
+    }
+
+    @Override
     public Answer getAnswer(Question question) {
         PromptTemplate systemMessagePromptTemplate = new PromptTemplate(systemMessageTemplate);
         Message systemMessage = systemMessagePromptTemplate.createMessage();

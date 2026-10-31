@@ -13,11 +13,11 @@ import org.springframework.ai.document.Document;
 import org.springframework.ai.image.ImageModel;
 import org.springframework.ai.image.ImagePrompt;
 import org.springframework.ai.model.Media;
-import org.springframework.ai.openai.OpenAiChatModel;
-import org.springframework.ai.openai.OpenAiChatOptions;
-import org.springframework.ai.openai.OpenAiImageModel;
-import org.springframework.ai.openai.OpenAiImageOptions;
+import org.springframework.ai.openai.*;
 import org.springframework.ai.openai.api.OpenAiApi;
+import org.springframework.ai.openai.api.OpenAiAudioApi;
+import org.springframework.ai.openai.audio.speech.SpeechPrompt;
+import org.springframework.ai.openai.audio.speech.SpeechResponse;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Value;
@@ -37,6 +37,7 @@ public class OpenAIServiceImpl implements AiService {
     private final OpenAiChatModel chatModel;
     private final VectorStore simpleVectorStore;
     private final OpenAiImageModel imageModel;
+    private final OpenAiAudioSpeechModel speechModel;
 
     @Value("classpath:/templates/rag-prompt-template.st")
     private Resource ragPromptTemplate;
@@ -85,6 +86,23 @@ public class OpenAIServiceImpl implements AiService {
         ChatResponse response = chatModel.call(new Prompt(List.of(userMessage), options));
 
         return response.getResult().getOutput().toString();
+    }
+
+    @Override
+    public byte[] getSpeech(Question question) {
+        OpenAiAudioSpeechOptions speechOptions = OpenAiAudioSpeechOptions.builder()
+                .voice(OpenAiAudioApi.SpeechRequest.Voice.ALLOY)
+                .speed(1.0f)
+                .responseFormat(OpenAiAudioApi.SpeechRequest.AudioResponseFormat.MP3)
+                .model(OpenAiAudioApi.TtsModel.TTS_1.value)
+                .build();
+
+        SpeechPrompt speechPrompt = new SpeechPrompt(question.question(),
+                speechOptions);
+
+        SpeechResponse response = speechModel.call(speechPrompt);
+
+        return response.getResult().getOutput();
     }
 
     @Override

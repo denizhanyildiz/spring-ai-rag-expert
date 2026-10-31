@@ -43,6 +43,11 @@ public class QuestionController {
         return ResponseEntity.ok(getService(AiProvider.OPENAI).getDescription(file));
     }
 
+    @PostMapping(value ="/talk", produces = "audio/mpeg")
+    public byte[] talkTalk(@RequestBody Question question) {
+        return getService(AiProvider.OPENAI).getSpeech(question);
+    }
+
     private AiService getService(AiProvider provider) {
         return aiServices.stream()
                 .filter(service -> service.isSupported(provider))
