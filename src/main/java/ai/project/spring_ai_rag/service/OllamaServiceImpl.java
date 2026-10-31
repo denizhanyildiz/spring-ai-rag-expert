@@ -17,6 +17,7 @@ import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -66,6 +67,16 @@ public class OllamaServiceImpl implements AiService {
         ChatResponse response = chatModel.call(new Prompt(List.of(systemMessage, userMessage), promptOptions));
 
         return new Answer(response.getResult().getOutput().getContent());
+    }
+
+    @Override
+    public byte[] getImage(Question question) {
+        throw new UnsupportedOperationException("Image is not supported by the OpenAI service");
+    }
+
+    @Override
+    public String getDescription(MultipartFile file) {
+        throw new UnsupportedOperationException("Vision is not supported by the OpenAI service");
     }
 
     @Override
